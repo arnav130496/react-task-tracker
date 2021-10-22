@@ -89,3 +89,6 @@
             const data = await res.json()
             setTasks([...tasks, data])
         }
+
+### npm-reactor-dom for making page switches/routing
+    npm i react-router-dom -> to install the package

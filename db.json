@@ -3,7 +3,7 @@
     {
       "text": "Visit friend",
       "day": "Friday",
-      "reminder": true,
+      "reminder": false,
       "id": 1
     }
   ]

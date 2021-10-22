@@ -43,3 +43,49 @@
     npm run build -> creates an optimized prod build in the build folder with minified versions of the app
     npm i -g serve -> once built if you want to run the prod build locally you need to install the 'serve' package globally
     serve -s build -p 8000 -> This command then deploys the prod from build folder on port 8000
+
+
+### useEffect
+    useEffect hook is used when altering dom, making api fetches etc. 
+    Since render is quick to produce effects, to manage the lifecycle we must use useEffect
+    Ex:
+        useEffect(()=>{
+            const getTasks = async () => {
+                const dataFromServer = await fetchTasks()
+                setTasks(dataFromServer)
+            }
+            getTasks()
+            //passing an array incase you want a flag deciding if this method runs, we dont so empty
+        }, [])
+
+        const fetchTasks = async () => {
+            const res = await fetch('http://localhost:5000/tasks')
+            const data = await res.json()
+
+            console.log(data)
+            return data
+        }
+
+### Using fetch to make API calls (done using async/await)
+    Ex: 
+        1. const fetchTasks = async () => {
+            const res = await fetch('http://localhost:5000/tasks')
+            const data = await res.json()
+
+            console.log(data)
+            return data
+        }
+
+        2. const addTask = async (task) => {
+            const res = await fetch(`http://localhost:5000/tasks/`, {
+                method: 'POST',
+                headers: {
+                'Content-type': 'application/json'
+                },
+                
+                body: JSON.stringify(task)
+            })
+
+            const data = await res.json()
+            setTasks([...tasks, data])
+        }

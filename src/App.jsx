@@ -12,6 +12,8 @@ function App() {
       //on the RHS we useState and initialize some default values
       const [tasks, setTasks] = useState([])
 
+    //useEffect hook is used when altering dom, making api fetches etc. 
+    //Since render is quick to produce effects, to manage the lifecycle we must use useEffect
     useEffect(()=>{
       const getTasks = async () => {
         const dataFromServer = await fetchTasks()

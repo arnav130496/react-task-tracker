@@ -12,6 +12,7 @@ const task = (props) => {
                     
                 /> 
             </h3>
+            <h4>{props.task.day}</h4>
         </div>
     )
 }

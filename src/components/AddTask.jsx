@@ -26,16 +26,18 @@ const AddTask = ({onAdd}) => {
 
     return (
         <form className='add-form' onSubmit={onSubmit}>
-            <div className='form-control'></div>
-            <label>Task</label>
-            <input type='text' placeholder='Add-Task' value={text} onChange={(e) => setText(e.target.value)}/> 
-            <div className='form-control'></div>
-            <label>Day & Time</label>
-            <input type='text' placeholder='Add Day & Time' value={day} onChange={(e) => setDay(e.target.value)}></input>
-            <div className='form-control form-control-check'></div>
-            <label>Reminder</label>
-            <input type='checkbox' checked={reminder} value={reminder} onChange={(e) => setReminder(e.currentTarget.checked)}></input>
-
+            <div className='form-control'>
+                <label className='form-control label form-control-check label'>Task</label>
+                <input className='form-control input form-control-check input' type='text' placeholder='Add-Task' value={text} onChange={(e) => setText(e.target.value)}/> 
+            </div>
+            <div className='form-control'>
+                <label className='form-control label form-control-check label'>Day & Time</label>
+                <input className='form-control input form-control-check input' type='text' placeholder='Add Day & Time' value={day} onChange={(e) => setDay(e.target.value)}></input>
+            </div>
+            <div className='form-control form-control-check'>
+                <label className='form-control label'>Reminder</label>
+                <input type='checkbox' checked={reminder} value={reminder} onChange={(e) => setReminder(e.currentTarget.checked)}></input>
+            </div>
             <input type='submit' value='Save Task' className='btn btn-block' />
         </form >
     )

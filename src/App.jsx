@@ -5,12 +5,13 @@ import React, {useState} from 'react';
 import AddTask from "./components/AddTask";
 
 function App() {
+  const [showAddTask, setShowAddTask] = useState(false)
     //This below line creates a task and intializes a default state
       //tasks is the variable we use
       //setTasks is a function that can be used to alter the state of tasks variable
       //on the RHS we useState and initialize some default values
       const [tasks, setTasks] = useState([
-          {id:1, text: 'Task 1', reminder: false },{id:2, text:'Task 2', reminder:false}
+          {id:1, text: 'Get a haircut', day:'22-Oct', reminder: false },{id:2, text:'Pickup cousin', day:'22-Oct', reminder:false}
       ])
 
     //Add Task
@@ -41,8 +42,8 @@ function App() {
   return (
     <div className="container">
       {/* Calling a Child Component */}
-      <Header/>
-      <AddTask onAdd={addTask}/>
+      <Header toggleAddTask={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
+      {showAddTask && <AddTask onAdd={addTask}/>}
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask}  onToggle={toggleReminder} /> : 'No Tasks'}
     </div>
   );

@@ -3,16 +3,12 @@ import Button from './Button'
 
 //Using props here (Parent component can choose to pass values)
 const Header = (props) => {
-    const onClick = () => {
-        console.log('Click')
-    }
 
     //props are usally an object and hence need to be unpacked
-    console.log(props)
     return (
         <header className='header'>
             <h1>{props.title}</h1>
-            <Button color='green' text='Add' onClick={onClick}/>
+            <Button color={props.showAdd ? 'red' : 'green'} text={props.showAdd ? 'Close' : 'Add'} onClick={props.toggleAddTask}/>
         </header>
     )
 }
@@ -20,11 +16,13 @@ const Header = (props) => {
 //Default values if parent does not provide props
 Header.defaultProps = {
     title:'Task Tracker',
+    toggleAddTask: false
 }
 
 //Props types so that it adheres to the definitions
 Header.propTypes = {
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    toggleAddTask: PropTypes.bool
 }
 
 export default Header

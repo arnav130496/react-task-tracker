@@ -38,3 +38,8 @@
             </>
         )
     }
+
+### creating a prod build & steps to run and use prod build
+    npm run build -> creates an optimized prod build in the build folder with minified versions of the app
+    npm i -g serve -> once built if you want to run the prod build locally you need to install the 'serve' package globally
+    serve -s build -p 8000 -> This command then deploys the prod from build folder on port 8000

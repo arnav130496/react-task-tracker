@@ -21,8 +21,7 @@ Header.defaultProps = {
 
 //Props types so that it adheres to the definitions
 Header.propTypes = {
-    title: PropTypes.string.isRequired,
-    toggleAddTask: PropTypes.bool
+    title: PropTypes.string.isRequired
 }
 
 export default Header
